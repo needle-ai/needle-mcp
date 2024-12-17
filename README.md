@@ -2,6 +2,9 @@
 
 An MCP server to manage documents and perform semantic search through Claude chat using Needle.
 
+## Examples
+<img width="592" alt="Screenshot 2024-12-17 at 12 25 03 PM" src="https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b" />
+
 ## Quick Setup
 
 1. Clone the repository:
