@@ -12,6 +12,11 @@ An MCP server to manage documents and perform semantic search through Claude cha
 
 <img width="1336" alt="Screenshot 2024-12-17 at 12 25 50 PM" src="https://github.com/user-attachments/assets/0b1860e8-d074-4eec-857d-7d57746b5fb2" />
 
+### Demo 
+
+https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c
+
+
 ## Quick Setup
 
 1. Clone the repository:
