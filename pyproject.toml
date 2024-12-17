@@ -2,10 +2,11 @@
 name = "needle-mcp"
 version = "0.1.0"
 description = "Needle MCP integration"
+license = "MIT"
 dependencies = [
-    "mcp",
-    "needle",
-    "python-dotenv",
+    "needle-python>=0.4.0",
+    "mcp>=1.1.0",
+    "python-dotenv>=1.0.1",
 ]
 
 [[project.authors]]
