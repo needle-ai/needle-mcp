@@ -75,7 +75,10 @@ find / -name "claude_desktop_config.json" 2>/dev/null
 - On Windows: Delete contents of `%APPDATA%/Claude/`
 
 3. Create a fresh config with only Needle:
-```json
+```
+mkdir -p ~/Library/Application\ Support/Claude
+cat > ~/Library/Application\ Support/Claude/claude_desktop_config.json
+<< 'EOL'
 {
   "mcpServers": {
     "needle_mcp": {
@@ -92,6 +95,7 @@ find / -name "claude_desktop_config.json" 2>/dev/null
     }
   }
 }
+EOL
 ```
 
 4. Completely quit Claude Desktop (Command+Q on Mac) and relaunch it
