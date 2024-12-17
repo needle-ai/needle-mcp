@@ -8,6 +8,10 @@ dependencies = [
     "python-dotenv",
 ]
 
+[[project.authors]]
+name = "Jan Heimes"
+email = "jan@needle-ai.com"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
