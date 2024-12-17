@@ -3,9 +3,13 @@
 An MCP server to manage documents and perform semantic search through Claude chat using Needle.
 
 ## Examples
+
 ### How we use the commands in Claudie Desktop
+
 <img width="592" alt="Screenshot 2024-12-17 at 12 25 03 PM" src="https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b" />
+
 ### What the results are in Needle
+
 <img width="1336" alt="Screenshot 2024-12-17 at 12 25 50 PM" src="https://github.com/user-attachments/assets/0b1860e8-d074-4eec-857d-7d57746b5fb2" />
 
 ## Quick Setup
