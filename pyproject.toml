@@ -1,16 +1,16 @@
-[tool.poetry]
-name = "mcp-server-needle"
+[project]
+name = "needle-mcp"
 version = "0.1.0"
-description = "MCP server for Needle RAG integration"
-authors = ["Your Name <your.email@example.com>"]
-license = "MIT"
-
-[tool.poetry.dependencies]
-python = "^3.8"
-mcp-core = "^0.1.0"
-needle-python = "^0.4.0"
-pydantic = "^2.0.0"
+description = "Needle MCP integration"
+dependencies = [
+    "mcp",
+    "needle",
+    "python-dotenv",
+]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api" 
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+needle-mcp = "needle_mcp:main"
