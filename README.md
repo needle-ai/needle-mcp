@@ -8,11 +8,7 @@ An MCP server to manage documents and perform semantic search through Claude cha
 
 <img width="592" alt="Screenshot 2024-12-17 at 12 25 03 PM" src="https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b" />
 
-### What the results are in Needle
-
-<img width="1336" alt="Screenshot 2024-12-17 at 12 25 50 PM" src="https://github.com/user-attachments/assets/0b1860e8-d074-4eec-857d-7d57746b5fb2" />
-
-### Demo 
+### You set up this collection in Needle via Claude
 
 https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c
 
