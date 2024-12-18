@@ -194,7 +194,7 @@ async def list_tools() -> list[Tool]:
     ]
 
 @server.call_tool()
-@rate_limit(calls=10, period=1.0)  # Adjust if needed
+@rate_limit(calls=10, period=1.0)
 async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
     """Handle tool calls for Needle operations."""
     try:
@@ -250,12 +250,27 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
         elif name == "search":
             if not isinstance(arguments, dict) or not all(k in arguments for k in ["collection_id", "query"]):
                 raise ValueError("Missing required parameters")
-            results = client.collections.search(arguments["collection_id"], text=arguments["query"])
-            # results is a list of matches, convert to a dict
+            
+            # Use the correct search method from the SDK
+            results = client.collections.search(
+                collection_id=arguments["collection_id"],
+                text=arguments["query"],
+                # Optionally add these parameters if needed:
+                # max_distance=0.8,  # Adjust threshold as needed
+                # top_k=5  # Adjust number of results as needed
+            )
+            
+            # Format results according to the SearchResult model from the SDK
             result = [{
                 "content": r.content,
-                "score": r.score
+                "file_id": r.file_id,
+                # Don't include score as it's not in the SDK's SearchResult model
             } for r in results]
+
+            return [TextContent(
+                type="text",  # Changed from "error" to "text"
+                text=json.dumps(result, indent=2, default=str)
+            )]
 
         else:
             raise ValueError(f"Unknown tool: {name}")
@@ -268,11 +283,17 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
     except NeedleError as e:
         error_message = f"Needle API error: {str(e)}"
         logger.error(error_message)
-        return [TextContent(type="error", text=error_message)]
+        return [TextContent(
+            type="text",  # Changed from "error" to "text"
+            text=error_message
+        )]
     except Exception as e:
         error_message = f"Error executing {name}: {str(e)}"
         logger.error(error_message)
-        return [TextContent(type="error", text=error_message)]
+        return [TextContent(
+            type="text",  # Changed from "error" to "text"
+            text=error_message
+        )]
 
 async def main():
     import mcp
