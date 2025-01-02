@@ -1,8 +1,8 @@
-# Needle MCP Server
+# Build Agents with Needle MCP Server
 
 ![Screenshot of Feature - Claude](https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4)
 
-An MCP (Message Control Protocol) server to manage documents and perform searches using [Needle](https://needle-ai.com) through Claude’s chat API.
+MCP (Model Context Protocol) server to manage documents and perform searches using [Needle](https://needle-ai.com) through Claude’s chat API.
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ Needle MCP Server allows you to:
 
 ## Features
 
-- **Document Management:** Easily add, remove, and organize documents on the server.
+- **Document Management:** Easily add and organize documents on the server.
 - **Search & Retrieval:** Claude-based natural language search for quick answers.
 - **Easy Integration:** Works with [Claudie Desktop](#commands-in-claudie-desktop) and Needle collections.
 
