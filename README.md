@@ -1,6 +1,9 @@
 # Needle MCP server
+<img width="852" alt="Feature_ Claude (1)" src="https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4" />
 
-An MCP server to manage documents and perform semantic search through Claude chat using Needle.
+An MCP server to manage documents and perform searches through Claude chat using Needle.
+
+## Youtube Explanation Video[https://youtu.be/nVrRYp9NZYg]
 
 ## Examples
 
