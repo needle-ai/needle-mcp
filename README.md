@@ -2,7 +2,7 @@
 
 ![Screenshot of Feature - Claude](https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4)
 
-An MCP (Message Control Protocol) server to manage documents and perform searches using [Needle](https://github.com/needle-org/needle) through Claude’s chat API.
+An MCP (Message Control Protocol) server to manage documents and perform searches using [Needle](https://needle-ai.com) through Claude’s chat API.
 
 ## Table of Contents
 
@@ -35,9 +35,6 @@ Needle MCP Server allows you to:
 
 ---
 
-
----
-
 ## Usage
 
 ### Commands in Claudie Desktop
@@ -49,12 +46,6 @@ Below is an example of how the commands can be used in Claudie Desktop to intera
 1. **Open Claudie Desktop** and connect to the Needle MCP Server.  
 2. **Use simple text commands** to search, retrieve, or modify documents.  
 3. **Review search results** returned by Claude in a user-friendly interface.
-
-### Setting Up a Collection in Needle via Claude
-
-To set up a collection in Needle through Claude:
-
-![Needle Collection Setup](https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c)
 
 ---
 
