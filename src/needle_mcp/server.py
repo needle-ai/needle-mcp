@@ -13,7 +13,6 @@ from mcp.server import Server
 from mcp.types import (
     Tool,
     TextContent,
-    EmptyResult,
 )
 from needle.v1 import NeedleClient
 from needle.v1.models import FileToAdd, Error as NeedleError
@@ -287,7 +286,6 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
             if not isinstance(arguments, dict) or "collection_id" not in arguments:
                 raise ValueError("Missing required parameter: 'collection_id'")
             collection = client.collections.get(arguments["collection_id"])
-            # collection is likely a model, so let's convert it to a dict for printing
             result = {
                 "collection": {
                     "id": collection.id,
@@ -300,7 +298,6 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
             if not isinstance(arguments, dict) or "collection_id" not in arguments:
                 raise ValueError("Missing required parameter: 'collection_id'")
             stats = client.collections.stats(arguments["collection_id"])
-            # stats is likely a dict already
             result = {"stats": stats}
             
         elif name == "needle_list_files":
@@ -326,7 +323,6 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
             if not isinstance(arguments, dict) or not all(k in arguments for k in ["collection_id", "query"]):
                 raise ValueError("Missing required parameters")
             
-            # Use the correct search method from the SDK
             results = client.collections.search(
                 collection_id=arguments["collection_id"],
                 text=arguments["query"],
@@ -335,15 +331,13 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
                 # top_k=5  # Adjust number of results as needed
             )
             
-            # Format results according to the SearchResult model from the SDK
             result = [{
                 "content": r.content,
                 "file_id": r.file_id,
-                # Don't include score as it's not in the SDK's SearchResult model
             } for r in results]
 
             return [TextContent(
-                type="text",  # Changed from "error" to "text"
+                type="text",
                 text=json.dumps(result, indent=2, default=str)
             )]
 
@@ -359,14 +353,14 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
         error_message = f"Needle API error: {str(e)}"
         logger.error(error_message)
         return [TextContent(
-            type="text",  # Changed from "error" to "text"
+            type="text",
             text=error_message
         )]
     except Exception as e:
         error_message = f"Error executing {name}: {str(e)}"
         logger.error(error_message)
         return [TextContent(
-            type="text",  # Changed from "error" to "text"
+            type="text",
             text=error_message
         )]
 
