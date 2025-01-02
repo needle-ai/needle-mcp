@@ -87,8 +87,13 @@ async def list_tools() -> list[Tool]:
     """List available tools for interacting with Needle."""
     return [
         Tool(
-            name="list_collections",
-            description="List all collections you have access to",
+            name="needle_list_collections",
+            description="""Retrieve a complete list of all Needle document collections accessible to your account. 
+            Returns detailed information including collection IDs, names, and creation dates. Use this tool when you need to:
+            - Get an overview of available document collections
+            - Find collection IDs for subsequent operations
+            - Verify collection existence before performing operations
+            The response includes metadata that's required for other Needle operations.""",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -96,96 +101,166 @@ async def list_tools() -> list[Tool]:
             }
         ),
         Tool(
-            name="create_collection",
-            description="Create a new collection in Needle for storing documents",
+            name="needle_create_collection",
+            description="""Create a new document collection in Needle for organizing and searching documents. 
+            A collection acts as a container for related documents and enables semantic search across its contents.
+            Use this tool when you need to:
+            - Start a new document organization
+            - Group related documents together
+            - Set up a searchable document repository
+            Returns a collection ID that's required for subsequent operations. Choose a descriptive name that 
+            reflects the collection's purpose for better organization.""",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "name": {
                         "type": "string",
-                        "description": "Name of the collection"
+                        "description": "A clear, descriptive name for the collection that reflects its purpose and contents"
                     }
                 },
                 "required": ["name"]
             }
         ),
         Tool(
-            name="get_collection_details",
-            description="Get detailed information about a specific collection",
+            name="needle_get_collection_details",
+            description="""Fetch comprehensive metadata about a specific Needle collection. 
+            Provides detailed information about the collection's configuration, creation date, and current status.
+            Use this tool when you need to:
+            - Verify a collection's existence and configuration
+            - Check collection metadata before operations
+            - Get creation date and other attributes
+            Requires a valid collection ID and returns detailed collection metadata. Will error if collection doesn't exist.""",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "collection_id": {
                         "type": "string",
-                        "description": "ID of the collection to get details for"
+                        "description": "The unique collection identifier returned from needle_create_collection or needle_list_collections"
                     }
                 },
                 "required": ["collection_id"]
             }
         ),
         Tool(
-            name="get_collection_stats",
-            description="Get statistics for a specific collection",
+            name="needle_get_collection_stats",
+            description="""Retrieve detailed statistical information about a Needle collection's contents and status.
+            Provides metrics including:
+            - Total number of documents
+            - Processing status of documents
+            - Storage usage and limits
+            - Index status and health
+            Use this tool to:
+            - Monitor collection size and growth
+            - Verify processing completion
+            - Check collection health before operations
+            Essential for ensuring collection readiness before performing searches.""",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "collection_id": {
                         "type": "string",
-                        "description": "ID of the collection to get stats for"
+                        "description": "The unique collection identifier to get statistics for"
                     }
                 },
                 "required": ["collection_id"]
             }
         ),
         Tool(
-            name="list_collection_files",
-            description="List all files in a specific collection",
+            name="needle_list_files",
+            description="""List all documents stored within a specific Needle collection with their current status.
+            Returns detailed information about each file including:
+            - File ID and name
+            - Processing status (pending, processing, complete, error)
+            - Upload date and metadata
+            Use this tool when you need to:
+            - Inventory available documents
+            - Check processing status of uploads
+            - Get file IDs for reference
+            - Verify document availability before searching
+            Essential for monitoring document processing completion before performing searches.""",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "collection_id": {
                         "type": "string",
-                        "description": "ID of the collection to list files from"
+                        "description": "The unique collection identifier to list files from"
                     }
                 },
                 "required": ["collection_id"]
             }
         ),
         Tool(
-            name="add_file",
-            description="Add a file to an existing collection by URL",
+            name="needle_add_file",
+            description="""Add a new document to a Needle collection by providing a URL for download.
+            Supports multiple file formats including:
+            - PDF documents
+            - Microsoft Word files (DOC, DOCX)
+            - Plain text files (TXT)
+            - Web pages (HTML)
+            
+            The document will be:
+            1. Downloaded from the provided URL
+            2. Processed for text extraction
+            3. Indexed for semantic search
+            
+            Use this tool when you need to:
+            - Add new documents to a collection
+            - Make documents searchable
+            - Expand your knowledge base
+            
+            Important: Documents require processing time before they're searchable.
+            Check processing status using needle_list_files before searching new content.""",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "collection_id": {
                         "type": "string",
-                        "description": "ID of the collection to add the file to"
+                        "description": "The unique collection identifier where the file will be added"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the file"
+                        "description": "A descriptive filename that will help identify this document in results"
                     },
                     "url": {
                         "type": "string",
-                        "description": "URL where the file can be downloaded from"
+                        "description": "Public URL where the document can be downloaded from"
                     }
                 },
                 "required": ["collection_id", "name", "url"]
             }
         ),
         Tool(
-            name="search",
-            description="Search for relevant content within a collection",
+            name="needle_search",
+            description="""Perform intelligent semantic search across documents in a Needle collection.
+            This tool uses advanced embedding technology to find relevant content based on meaning,
+            not just keywords. The search:
+            - Understands natural language queries
+            - Finds conceptually related content
+            - Returns relevant text passages with source information
+            - Ranks results by semantic relevance
+            
+            Use this tool when you need to:
+            - Find specific information within documents
+            - Answer questions from document content
+            - Research topics across multiple documents
+            - Locate relevant passages and their sources
+            
+            More effective than traditional keyword search for:
+            - Natural language questions
+            - Conceptual queries
+            - Finding related content
+            
+            Returns matching text passages with their source file IDs.""",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "collection_id": {
                         "type": "string",
-                        "description": "ID of the collection to search in"
+                        "description": "The unique collection identifier to search within"
                     },
                     "query": {
                         "type": "string",
-                        "description": "Search query in natural language"
+                        "description": "Natural language query describing the information you're looking for"
                     }
                 },
                 "required": ["collection_id", "query"]
@@ -198,17 +273,17 @@ async def list_tools() -> list[Tool]:
 async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
     """Handle tool calls for Needle operations."""
     try:
-        if name == "list_collections":
+        if name == "needle_list_collections":
             collections = client.collections.list()
             result = {"collections": [{"id": c.id, "name": c.name, "created_at": str(c.created_at)} for c in collections]}
             
-        elif name == "create_collection":
+        elif name == "needle_create_collection":
             if not isinstance(arguments, dict) or "name" not in arguments:
                 raise ValueError("Missing required parameter: 'name'")
             collection = client.collections.create(name=arguments["name"])
             result = {"collection_id": collection.id}
             
-        elif name == "get_collection_details":
+        elif name == "needle_get_collection_details":
             if not isinstance(arguments, dict) or "collection_id" not in arguments:
                 raise ValueError("Missing required parameter: 'collection_id'")
             collection = client.collections.get(arguments["collection_id"])
@@ -221,20 +296,20 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
                 }
             }
             
-        elif name == "get_collection_stats":
+        elif name == "needle_get_collection_stats":
             if not isinstance(arguments, dict) or "collection_id" not in arguments:
                 raise ValueError("Missing required parameter: 'collection_id'")
             stats = client.collections.stats(arguments["collection_id"])
             # stats is likely a dict already
             result = {"stats": stats}
             
-        elif name == "list_collection_files":
+        elif name == "needle_list_files":
             if not isinstance(arguments, dict) or "collection_id" not in arguments:
                 raise ValueError("Missing required parameter: 'collection_id'")
             files = client.collections.files.list(arguments["collection_id"])
             result = {"files": [{"id": f.id, "name": f.name, "status": f.status} for f in files]}
             
-        elif name == "add_file":
+        elif name == "needle_add_file":
             if not isinstance(arguments, dict) or not all(k in arguments for k in ["collection_id", "name", "url"]):
                 raise ValueError("Missing required parameters")
             if not validate_collection_id(arguments["collection_id"]):
@@ -247,7 +322,7 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
             )
             result = {"file_id": files[0].id}
             
-        elif name == "search":
+        elif name == "needle_search":
             if not isinstance(arguments, dict) or not all(k in arguments for k in ["collection_id", "query"]):
                 raise ValueError("Missing required parameters")
             
