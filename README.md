@@ -8,12 +8,11 @@ An MCP (Message Control Protocol) server to manage documents and perform searche
 
 - [Overview](#overview)
 - [Features](#features)
-- [Installation](#installation)
 - [Usage](#usage)
   - [Commands in Claudie Desktop](#commands-in-claudie-desktop)
-  - [Setting Up a Collection in Needle via Claude](#setting-up-a-collection-in-needle-via-claude)
-- [Video Explanation](#video-explanation)
-- [License](#license)
+  - [Result in Needle](#result-in-needle)
+- [Installation](#installation)
+- [Video Explanation](#youtube-video-explanation)
 
 ---
 
@@ -47,11 +46,15 @@ Below is an example of how the commands can be used in Claudie Desktop to intera
 2. **Use simple text commands** to search, retrieve, or modify documents.  
 3. **Review search results** returned by Claude in a user-friendly interface.
 
+### Result in Needle
+
+https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c
+
 ---
 
 ## Youtube Video Explanation
 
-For a full walkthrough on how to use the Needle MCP Server with Claude and Claudie Desktop, watch this [YouTube explanation video](https://youtu.be/nVrRYp9NZYg).
+For a full walkthrough on using the Needle MCP Server with Claude and Claudie Desktop, watch this [YouTube explanation video](https://youtu.be/nVrRYp9NZYg).
 
 ---
 
