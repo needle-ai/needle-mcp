@@ -1,22 +1,70 @@
-# Needle MCP server
-<img width="852" alt="Feature_ Claude (1)" src="https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4" />
+# Needle MCP Server
 
-An MCP server to manage documents and perform searches through Claude chat using Needle.
+![Screenshot of Feature - Claude](https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4)
 
-## Youtube Explanation Video[https://youtu.be/nVrRYp9NZYg]
+An MCP (Message Control Protocol) server to manage documents and perform searches using [Needle](https://github.com/needle-org/needle) through Claude’s chat API.
 
-## Examples
+## Table of Contents
 
-### How we use the commands in Claudie Desktop
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Commands in Claudie Desktop](#commands-in-claudie-desktop)
+  - [Setting Up a Collection in Needle via Claude](#setting-up-a-collection-in-needle-via-claude)
+- [Video Explanation](#video-explanation)
+- [License](#license)
 
-<img width="592" alt="Screenshot 2024-12-17 at 12 25 03 PM" src="https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b" />
+---
 
-### You set up this collection in Needle via Claude
+## Overview
 
-https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c
+Needle MCP Server allows you to:
+
+- Organize and store documents for quick retrieval.
+- Perform powerful searches via Claude’s large language model.
+- Integrate seamlessly with the Needle ecosystem for advanced document management.
+
+---
+
+## Features
+
+- **Document Management:** Easily add, remove, and organize documents on the server.
+- **Search & Retrieval:** Claude-based natural language search for quick answers.
+- **Easy Integration:** Works with [Claudie Desktop](#commands-in-claudie-desktop) and Needle collections.
+
+---
 
 
-## Quick Setup
+---
+
+## Usage
+
+### Commands in Claudie Desktop
+
+Below is an example of how the commands can be used in Claudie Desktop to interact with the server:
+
+![Using commands in Claudie Desktop](https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b)
+
+1. **Open Claudie Desktop** and connect to the Needle MCP Server.  
+2. **Use simple text commands** to search, retrieve, or modify documents.  
+3. **Review search results** returned by Claude in a user-friendly interface.
+
+### Setting Up a Collection in Needle via Claude
+
+To set up a collection in Needle through Claude:
+
+![Needle Collection Setup](https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c)
+
+---
+
+## Youtube Video Explanation
+
+For a full walkthrough on how to use the Needle MCP Server with Claude and Claudie Desktop, watch this [YouTube explanation video](https://youtu.be/nVrRYp9NZYg).
+
+---
+
+## Installation
 
 1. Clone the repository:
 ```bash
