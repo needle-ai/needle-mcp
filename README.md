@@ -1,5 +1,7 @@
 # Build Agents with Needle MCP Server
 
+[![smithery badge](https://smithery.ai/badge/needle-mcp)](https://smithery.ai/server/needle-mcp)
+
 ![Screenshot of Feature - Claude](https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4)
 
 MCP (Model Context Protocol) server to manage documents and perform searches using [Needle](https://needle-ai.com) through Claude’s Desktop Application.
@@ -60,6 +62,15 @@ For a full walkthrough on using the Needle MCP Server with Claude and Claudie De
 
 ## Installation
 
+### Installing via Smithery
+
+To install Needle MCP for Claude Desktop automatically via [Smithery](https://smithery.ai/server/needle-mcp):
+
+```bash
+npx -y @smithery/cli install needle-mcp --client claude
+```
+
+### Manual Installation
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/needle-mcp.git
