@@ -4,6 +4,10 @@
 
 MCP (Model Context Protocol) server to manage documents and perform searches using [Needle](https://needle-ai.com) through Claude’s Desktop Application.
 
+<a href="https://glama.ai/mcp/servers/5jw1t7hur2">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/5jw1t7hur2/badge" alt="Needle Server MCP server" />
+</a>
+
 ## Table of Contents
 
 - [Overview](#overview)
