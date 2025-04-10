@@ -9,7 +9,7 @@ MCP (Model Context Protocol) server to manage documents and perform searches usi
 - [Overview](#overview)
 - [Features](#features)
 - [Usage](#usage)
-  - [Commands in Claudie Desktop](#commands-in-claudie-desktop)
+  - [Commands in Claude Desktop](#commands-in-claude-desktop)
   - [Result in Needle](#result-in-needle)
 - [Installation](#installation)
 - [Video Explanation](#youtube-video-explanation)
@@ -30,19 +30,19 @@ Needle MCP Server allows you to:
 
 - **Document Management:** Easily add and organize documents on the server.
 - **Search & Retrieval:** Claude-based natural language search for quick answers.
-- **Easy Integration:** Works with [Claudie Desktop](#commands-in-claudie-desktop) and Needle collections.
+- **Easy Integration:** Works with [Claude Desktop](#commands-in-claude-desktop) and Needle collections.
 
 ---
 
 ## Usage
 
-### Commands in Claudie Desktop
+### Commands in Claude Desktop
 
-Below is an example of how the commands can be used in Claudie Desktop to interact with the server:
+Below is an example of how the commands can be used in Claude Desktop to interact with the server:
 
-![Using commands in Claudie Desktop](https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b)
+![Using commands in Claude Desktop](https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b)
 
-1. **Open Claudie Desktop** and connect to the Needle MCP Server.  
+1. **Open Claude Desktop** and connect to the Needle MCP Server.  
 2. **Use simple text commands** to search, retrieve, or modify documents.  
 3. **Review search results** returned by Claude in a user-friendly interface.
 
@@ -54,7 +54,7 @@ https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c
 
 ## Youtube Video Explanation
 
-For a full walkthrough on using the Needle MCP Server with Claude and Claudie Desktop, watch this [YouTube explanation video](https://youtu.be/nVrRYp9NZYg).
+For a full walkthrough on using the Needle MCP Server with Claude and Claude Desktop, watch this [YouTube explanation video](https://youtu.be/nVrRYp9NZYg).
 
 ---
 
