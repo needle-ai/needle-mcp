@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/needle-ai-needle-mcp-badge.png)](https://mseep.ai/app/needle-ai-needle-mcp)
+
 # Build Agents with Needle MCP Server
 
 [![smithery badge](https://smithery.ai/badge/needle-mcp)](https://smithery.ai/server/needle-mcp)
