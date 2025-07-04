@@ -109,7 +109,7 @@ brew install uv
 }
 ```
 
-5. Get your Needle API key from needle.xyz
+5. Get your Needle API key from needle-ai.com
 
 6. Update the config file:
    - Replace `/path/to/needle-mcp` with your actual repository path
