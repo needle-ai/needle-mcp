@@ -4,7 +4,7 @@
 
 ![Screenshot of Feature - Claude](https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4)
 
-MCP (Model Context Protocol) server to manage documents and perform searches using [Needle](https://needle-ai.com) through Claude’s Desktop Application.
+MCP (Model Context Protocol) server to manage documents and perform searches using [Needle](https://needle-ai.com) through Claude's Desktop Application.
 
 <a href="https://glama.ai/mcp/servers/5jw1t7hur2">
   <img width="380" height="200" src="https://glama.ai/mcp/servers/5jw1t7hur2/badge" alt="Needle Server MCP server" />
@@ -27,8 +27,12 @@ MCP (Model Context Protocol) server to manage documents and perform searches usi
 Needle MCP Server allows you to:
 
 - Organize and store documents for quick retrieval.
-- Perform powerful searches via Claude’s large language model.
+- Perform powerful searches via Claude's large language model.
 - Integrate seamlessly with the Needle ecosystem for advanced document management.
+
+MCP (Model Context Protocol) standardizes the way LLMs connect to external data sources. You can use Needle MCP Server to easily enable semantic search tools in your AI applications, making data buried in PDFs, DOCX, XLSX, and other files instantly accessible by LLMs.
+
+**We recommend using our remote MCP server** for the best experience - no local setup required.
 
 ---
 
@@ -64,58 +68,147 @@ For a full walkthrough on using the Needle MCP Server with Claude and Claude Des
 
 ---
 
+## Usage
+
+### Commands in Claude Desktop
+
+Below is an example of how the commands can be used in Claude Desktop to interact with the server:
+
+![Using commands in Claude Desktop](https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b)
+
+1. **Open Claude Desktop** and connect to the Needle MCP Server.  
+2. **Use simple text commands** to search, retrieve, or modify documents.  
+3. **Review search results** returned by Claude in a user-friendly interface.
+
+### Result in Needle
+
+https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c
+
+---
+
+## Youtube Video Explanation
+
+For a full walkthrough on using the Needle MCP Server with Claude and Claude Desktop, watch this [YouTube explanation video](https://youtu.be/nVrRYp9NZYg).
+
+---
+
 ## Installation
 
-### Installing via Smithery
+### 1. Remote MCP Server (Recommended)
 
-To install Needle MCP for Claude Desktop automatically via [Smithery](https://smithery.ai/server/needle-mcp):
+**Claude Desktop Config**
 
-```bash
-npx -y @smithery/cli install needle-mcp --client claude
-```
+Create or update your config file:
+- For MacOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- For Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 
-### Manual Installation
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/needle-mcp.git
-```
-
-2. Install UV globally using Homebrew in Terminal:
-```bash
-brew install uv
-```
-
-3. Create claude_desktop_config.json:
-   - For MacOS: Open directory `~/Library/Application Support/Claude/` and create the file inside it
-   - For Windows: Open directory `%APPDATA%/Claude/` and create the file inside it
-
-4. Add this configuration to claude_desktop_config.json:
 ```json
 {
   "mcpServers": {
-    "needle_mcp": {
-      "command": "uv",
+    "needle": {
+      "command": "npx",
       "args": [
-        "--directory",
-        "/path/to/needle-mcp",
-        "run",
-        "needle-mcp"
+        "mcp-remote",
+        "https://mcp.needle-ai.com/mcp",
+        "--header",
+        "Authorization:Bearer ${NEEDLE_API_KEY}"
       ],
       "env": {
-        "NEEDLE_API_KEY": "your_needle_api_key"
+        "NEEDLE_API_KEY": "<your-needle-api-key>"
       }
     }
   }
 }
 ```
 
-5. Get your Needle API key from [Needle](https://needle-ai.com) 
+**Cursor Config**
 
-6. Update the config file:
-   - Replace `/path/to/needle-mcp` with your actual repository path
-   - Add your Needle API key
+Create or update `.cursor/mcp.json`:
 
-7. Quit Claude completely and reopen it
+```json
+{
+  "mcpServers": {
+    "needle": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.needle-ai.com/mcp",
+        "--header",
+        "Authorization:${NEEDLE_AUTH_HEADER}"
+      ],
+      "env": {
+        "NEEDLE_AUTH_HEADER": "Bearer <your-needle-api-key>"
+      }
+    }
+  }
+}
+```
+
+Get your API key from [Needle Settings](https://needle-ai.com).
+
+We provide two endpoints:
+- **Streamable HTTP**: `https://mcp.needle-ai.com/mcp` (recommended)
+- **SSE**: `https://mcp.needle-ai.com/sse`
+
+Note: MCP deprecated SSE endpoints in the latest specification, so newer clients should prefer the Streamable HTTP endpoint.
+
+### 2. Local Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/needle-ai/needle-mcp.git
+```
+
+2. Install UV globally using Homebrew:
+```bash
+brew install uv
+```
+
+3. Create your config file:
+   - For MacOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - For Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+
+**Claude Desktop Config**
+
+```json
+{
+  "mcpServers": {
+    "needle": {
+      "command": "uv",
+      "args": ["--directory", "/path/to/needle-mcp", "run", "needle-mcp"],
+      "env": {
+        "NEEDLE_API_KEY": "<your-needle-api-key>"
+      }
+    }
+  }
+}
+```
+
+**Cursor Config**
+
+```json
+{
+  "mcpServers": {
+    "needle": {
+      "command": "uv",
+      "args": ["--directory", "/path/to/needle-mcp", "run", "needle-mcp"],
+      "env": {
+        "NEEDLE_API_KEY": "<your-needle-api-key>"
+      }
+    }
+  }
+}
+```
+
+4. Replace `/path/to/needle-mcp` with your actual repository path
+5. Add your Needle API key
+6. Restart Claude Desktop
+
+**Installing via Smithery**
+
+```bash
+npx -y @smithery/cli install needle-mcp --client claude
+```
 
 ## Usage Examples
 
@@ -127,8 +220,8 @@ brew install uv
 ## Troubleshooting
 
 If not working:
-- Make sure UV is installed globally (if not, uninstall with `pip uninstall uv` and reinstall with `brew install uv`)
-- Or find UV path with `which uv` and replace `"command": "uv"` with the full path
+- Make sure `uv` is installed globally (if not, uninstall with `pip uninstall uv` and reinstall with `brew install uv`)
+- Or find `uv` path with `which uv` and replace `"command": "uv"` with the full path
 - Verify your Needle API key is correct
 - Check if the needle-mcp path in config matches your actual repository location
 
@@ -152,7 +245,7 @@ cat > ~/Library/Application\ Support/Claude/claude_desktop_config.json
 << 'EOL'
 {
   "mcpServers": {
-    "needle_mcp": {
+    "needle": {
       "command": "uv",
       "args": [
         "--directory",
