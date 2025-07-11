@@ -210,6 +210,32 @@ brew install uv
 npx -y @smithery/cli install needle-mcp --client claude
 ```
 
+### 3. Docker Installation
+
+1. Clone and build:
+```bash
+git clone https://github.com/needle-ai/needle-mcp.git
+cd needle-mcp
+docker build -t needle-mcp .
+```
+
+2. Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
+```json
+{
+  "mcpServers": {
+    "needle": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "needle-mcp"],
+      "env": {
+        "NEEDLE_API_KEY": "<your-needle-api-key>"
+      }
+    }
+  }
+}
+```
+
+3. Restart Claude Desktop
+
 ## Usage Examples
 
 * "Create a new collection called 'Technical Docs'"
