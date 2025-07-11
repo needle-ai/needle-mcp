@@ -87,7 +87,7 @@ async def list_tools() -> list[Tool]:
     return [
         Tool(
             name="needle_list_collections",
-            description="""Retrieve a complete list of all Needle document collections accessible to your account. 
+            description="""List Needle collections. Returns maximum of 20 results. Get more results by increasing the offset.
             Returns detailed information including collection IDs, names, and creation dates. Use this tool when you need to:
             - Get an overview of available document collections
             - Find collection IDs for subsequent operations
@@ -95,7 +95,13 @@ async def list_tools() -> list[Tool]:
             The response includes metadata that's required for other Needle operations.""",
             inputSchema={
                 "type": "object",
-                "properties": {},
+                "properties": {
+                    "offset": {
+                        "type": "number",
+                        "description": "The offset to start listing from. Default is 0.",
+                        "default": 0
+                    }
+                },
                 "required": []
             }
         ),
@@ -273,8 +279,16 @@ async def call_tool(name: str, arguments: Any) -> Sequence[TextContent]:
     """Handle tool calls for Needle operations."""
     try:
         if name == "needle_list_collections":
+            offset = 0
+            if isinstance(arguments, dict) and "offset" in arguments:
+                offset = int(arguments["offset"])
+            
             collections = client.collections.list()
-            result = {"collections": [{"id": c.id, "name": c.name, "created_at": str(c.created_at)} for c in collections]}
+            collection_data = [{"id": c.id, "name": c.name, "created_at": str(c.created_at)} for c in collections]
+            
+            # Apply pagination
+            paginated_collections = collection_data[offset:offset + 20]
+            result = {"collections": paginated_collections}
             
         elif name == "needle_create_collection":
             if not isinstance(arguments, dict) or "name" not in arguments:
