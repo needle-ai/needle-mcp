@@ -68,30 +68,6 @@ For a full walkthrough on using the Needle MCP Server with Claude and Claude Des
 
 ---
 
-## Usage
-
-### Commands in Claude Desktop
-
-Below is an example of how the commands can be used in Claude Desktop to interact with the server:
-
-![Using commands in Claude Desktop](https://github.com/user-attachments/assets/9e0ce522-6675-46d9-9bfb-3162d214625b)
-
-1. **Open Claude Desktop** and connect to the Needle MCP Server.  
-2. **Use simple text commands** to search, retrieve, or modify documents.  
-3. **Review search results** returned by Claude in a user-friendly interface.
-
-### Result in Needle
-
-https://github.com/user-attachments/assets/0235e893-af96-4920-8364-1e86f73b3e6c
-
----
-
-## Youtube Video Explanation
-
-For a full walkthrough on using the Needle MCP Server with Claude and Claude Desktop, watch this [YouTube explanation video](https://youtu.be/nVrRYp9NZYg).
-
----
-
 ## Installation
 
 ### 1. Remote MCP Server (Recommended)
