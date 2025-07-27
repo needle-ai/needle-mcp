@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.12"
 
 [[package]]
@@ -77,7 +78,7 @@ name = "click"
 version = "8.1.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "platform_system == 'Windows'" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de", size = 336121 }
 wheels = [
@@ -167,7 +168,7 @@ wheels = [
 
 [[package]]
 name = "needle-mcp"
-version = "0.1.0"
+version = "1.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "mcp" },
@@ -178,20 +179,20 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "mcp", specifier = ">=1.1.0" },
-    { name = "needle-python", specifier = ">=0.4.0" },
+    { name = "needle-python", specifier = ">=0.6.0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
 ]
 
 [[package]]
 name = "needle-python"
-version = "0.4.0"
+version = "0.6.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ed/7e/9df82b2d79f0d4ccc71f93fc1d716877c9bf028b808b5bdf4cc503f3e3b6/needle_python-0.4.0.tar.gz", hash = "sha256:471b5ae639afcdc8eaa84f59296cb87059ea5846f09810cab7eff1d20cb91d09", size = 8524 }
+sdist = { url = "https://files.pythonhosted.org/packages/6f/c4/034f43a01d41c7c8d220b1f48a3e471c5fb54ba3092581ee848d98cc167d/needle_python-0.6.0.tar.gz", hash = "sha256:6fb2aa99ef56e8f63171add525ab4756c91504dc39b6fd3e33f14cec9ce33b46", size = 6697 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/30/b6/66d5f63f01b5b51bf98422eed5628bfdcf2ff9eea55cac57327cde77faac/needle_python-0.4.0-py3-none-any.whl", hash = "sha256:373fc86e3e8f56636d69219ec8d5275bbb696622666cdad66a8f1f158e51edb5", size = 9604 },
+    { url = "https://files.pythonhosted.org/packages/51/d0/86aa7949a35e5097e144b24d57e38eea34ee6a13ef0a3a226b25b4473e38/needle_python-0.6.0-py3-none-any.whl", hash = "sha256:5349cd16da8ffb6a6e8593df41a49995f52faab6aed37499cc4c9f6872196c40", size = 9592 },
 ]
 
 [[package]]

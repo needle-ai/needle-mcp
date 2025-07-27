@@ -4,7 +4,7 @@
 
 ![Screenshot of Feature - Claude](https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4)
 
-MCP (Model Context Protocol) server to manage documents and perform searches using [Needle](https://needle-ai.com) through Claude's Desktop Application.
+MCP (Model Context Protocol) server to manage documents and perform searches using [Needle](https://needle.app) through Claude's Desktop Application.
 
 <a href="https://glama.ai/mcp/servers/5jw1t7hur2">
   <img width="380" height="200" src="https://glama.ai/mcp/servers/5jw1t7hur2/badge" alt="Needle Server MCP server" />
@@ -85,7 +85,7 @@ Create or update your config file:
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://mcp.needle-ai.com/mcp",
+        "https://mcp.needle.app/mcp",
         "--header",
         "Authorization:Bearer ${NEEDLE_API_KEY}"
       ],
@@ -108,7 +108,7 @@ Create or update `.cursor/mcp.json`:
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://mcp.needle-ai.com/mcp",
+        "https://mcp.needle.app/mcp",
         "--header",
         "Authorization:${NEEDLE_AUTH_HEADER}"
       ],
@@ -120,11 +120,11 @@ Create or update `.cursor/mcp.json`:
 }
 ```
 
-Get your API key from [Needle Settings](https://needle-ai.com).
+Get your API key from [Needle Settings](https://needle.app).
 
 We provide two endpoints:
-- **Streamable HTTP**: `https://mcp.needle-ai.com/mcp` (recommended)
-- **SSE**: `https://mcp.needle-ai.com/sse`
+- **Streamable HTTP**: `https://mcp.needle.app/mcp` (recommended)
+- **SSE**: `https://mcp.needle.app/sse`
 
 Note: MCP deprecated SSE endpoints in the latest specification, so newer clients should prefer the Streamable HTTP endpoint.
 
@@ -215,7 +215,7 @@ docker build -t needle-mcp .
 ## Usage Examples
 
 * "Create a new collection called 'Technical Docs'"
-* "Add this document to the collection, which is https://needle-ai.com"
+* "Add this document to the collection, which is https://needle.app"
 * "Search the collection for information about AI"
 * "List all my collections"
 
