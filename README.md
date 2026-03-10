@@ -1,6 +1,7 @@
 # Build Agents with Needle MCP Server
 
 [![smithery badge](https://smithery.ai/badge/needle-mcp)](https://smithery.ai/server/needle-mcp)
+[![Security Score](https://mcpampel.com/badge/needle-ai/needle-mcp.svg)](https://mcpampel.com/repo/needle-ai/needle-mcp)
 
 ![Screenshot of Feature - Claude](https://github.com/user-attachments/assets/a7286901-e7be-4efe-afd9-72021dce03d4)
 
