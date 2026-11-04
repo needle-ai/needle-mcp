@@ -73,8 +73,8 @@ Route by job:
 - **Who am I bound to?** → `needleGetMe`
 - **Find a record you already have** → `needleSearchLeads`, `needleSearchCampaigns`, `needleSearchEnrollments`, `needleSearchConnectedAccounts`, or `needleSearchSuppressions`
 - **What can I send from?** → `needleListConnectedAccounts`
-- **Find people** → `needleSearchLinkedinClassicPeople` or `needleSearchLinkedinSalesNavigatorPeople`, then `needleGetLinkedinProfile`
-- **Find companies and jobs** → `needleSearchLinkedinCompanies`, `needleGetLinkedinCompany`, `needleListLinkedinCompanyJobs`, or `needleSearchLinkedinJobs` (searches all of LinkedIn unless you pass `companies`; resolve location, industry and title ids with `needleListLinkedinSearchParameters`). Read the full description and hiring team of one job with `needleGetLinkedinJob` (takes a job id or job URL)
+- **Find people** → `needleSearchLinkedinPeopleClassic` or `needleSearchLinkedinPeopleSalesNavigator`, then `needleGetLinkedinProfile`
+- **Find companies and jobs** → `needleSearchLinkedinCompaniesClassic`, `needleGetLinkedinCompany`, `needleListLinkedinCompanyJobs`, or `needleSearchLinkedinJobs` (searches all of LinkedIn unless you pass `companies`; resolve location, industry and title ids with `needleListLinkedinSearchParameters`). Read the full description and hiring team of one job with `needleGetLinkedinJob` (takes a job id or job URL)
 - **Read LinkedIn posts** → `needleSearchLinkedinPosts`, `needleListLinkedinPosts`, `needleGetLinkedinPost`, `needleListLinkedinPostComments`
 - **Engage on a post** → `needleCommentOnLinkedinPost` or `needleReactToLinkedinPost`
 - **Read the LinkedIn inbox** → `needleListLinkedinConversations`, then `needleListLinkedinConversationMessages`
@@ -297,7 +297,7 @@ Use this when the goal is a finished outbound result (a lead list, a live campai
 
 ### Source a list
 
-1. `needleSearchLinkedinClassicPeople` or `needleSearchLinkedinSalesNavigatorPeople` (keywords, structured filters, or a matching search URL), or `needleSearchPlaces`. Resolve LinkedIn filter ids with `needleListLinkedinSearchParameters` using the matching service. For companies, posts and job listings, use `needleSearchLinkedinCompanies`, `needleSearchLinkedinPosts`, `needleGetLinkedinCompany` / `needleListLinkedinCompanyJobs`.
+1. `needleSearchLinkedinPeopleClassic` or `needleSearchLinkedinPeopleSalesNavigator` (keywords, structured filters, or a matching search URL), or `needleSearchPlaces`. Resolve LinkedIn filter ids with `needleListLinkedinSearchParameters` using the matching service. For companies, posts and job listings, use `needleSearchLinkedinCompaniesClassic`, `needleSearchLinkedinPosts`, `needleGetLinkedinCompany` / `needleListLinkedinCompanyJobs`.
 2. `needleGetLinkedinProfile` / `needleGetPlace` when you need details.
 3. `needleCreateLeads` for the whole list at once, or `needleUpsertLead` per person (it reuses the lead if the person already is one; `needleCreateLead` refuses duplicates). Keep the lead ids that come back: enrolling needs them. LinkedIn identity accepts `john-doe`, `/in/john-doe`, `https://www.linkedin.com/in/john-doe`, or a user id (`ACoAAA…`). Instagram accepts `john-doe`, `@john-doe`, or `https://www.instagram.com/john-doe`.
 4. `needleCheckSuppressions` and drop anyone you should not contact.
