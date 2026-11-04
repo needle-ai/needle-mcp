@@ -29,6 +29,12 @@ Parameters, limits, and the full tool list are in the [Needle MCP docs](https://
 
 Prefer HTTP? Use the [API reference](https://needle.app/docs/api-reference/introduction). New to Needle? Start with the [onboarding skill](https://needle.app/agent-onboarding/SKILL.md).
 
+Install the Needle agent skill:
+
+```bash
+npx skills add needle-ai/needle-mcp
+```
+
 ## Example prompts
 
 Paste one of these into your agent once Needle is connected.
