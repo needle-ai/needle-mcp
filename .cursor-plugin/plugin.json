@@ -1,12 +1,12 @@
 {
   "name": "needle",
+  "description": "Find perfect leads and run outreach campaigns on Linkedin, email, Instagram and more.",
   "version": "1.0.0",
-  "description": "Find leads and run LinkedIn, Instagram and email outreach campaigns from Cursor.",
   "author": { "name": "Needle" },
   "homepage": "https://needle.app/docs/mcp/introduction",
   "repository": "https://github.com/needle-ai/needle-mcp",
+  "logo": "https://needle.app/favicon.svg",
   "keywords": ["outbound", "leads", "linkedin", "instagram", "email", "outreach", "sales", "mcp"],
-  "logo": "assets/logo.svg",
   "skills": "skills/",
   "mcpServers": "mcp.json"
 }
